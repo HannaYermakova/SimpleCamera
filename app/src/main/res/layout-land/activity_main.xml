@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
     </FrameLayout>
 
     <Button
@@ -18,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rotation="-90"
-        android:text="Capture"
+        android:text="@string/capture_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"

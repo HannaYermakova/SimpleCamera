@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsRes
         setContentView(R.layout.activity_main)
 
         requestPermission(Manifest.permission.CAMERA, PERMISSION_REQUEST_CAMERA)
-        val captureButton: Button = findViewById(R.id.button_capture)
-        captureButton.setOnClickListener {
+
+        button_capture.setOnClickListener {
             requestPermission(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 PERMISSION_REQUEST_EXTERNAL_STORAGE
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsRes
             Log.d("MainActivity", "Error creating media file, check storage permissions")
             return@PictureCallback
         }
-
         try {
             val fos = FileOutputStream(pictureFile)
             fos.write(data)
@@ -79,11 +78,9 @@ class MainActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsRes
     private fun startCamera() {
         button_capture.visibility = View.VISIBLE
         camera = getCameraInstance()
-
         preview = camera?.let {
             CameraPreview(this, it)
         }
-
         preview?.also {
             val pr: FrameLayout = findViewById(R.id.camera_preview)
             pr.addView(it)
